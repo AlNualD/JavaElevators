@@ -1,0 +1,7 @@
+
+*.xml
+*.class
+*.html
+elevatorsGUI/out/production/elevatorsGUI/META-INF/elevatorsGUI.kotlin_module
+elevatorsGUI/out/production/elevatorsGUI/sample/sample.fxml
+elevatorsGUI/elevatorsGUI.iml
