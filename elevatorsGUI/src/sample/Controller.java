@@ -30,6 +30,8 @@ public class Controller {
     private Button fifthFloorButton;
     //  private ImageView firstFloorButton;
 
+
+
     public void firstFloorButtonClicked(){
         WorkQueue.addTask(1);
         
@@ -60,7 +62,7 @@ public class Controller {
     }
 
 
-    private Elevator WorkQueue;
+    private ElevatorsControl WorkQueue;
 
 
     private javafx.event.EventHandler<WindowEvent> openEventHandler = new javafx.event.EventHandler<WindowEvent>(){
@@ -68,8 +70,13 @@ public class Controller {
         @Override
         public void handle(WindowEvent windowEvent) {
             //TODO: stage opening
+            ElevatorObj[] elevatorObjs = new ElevatorObj[2];
+            elevatorObjs[0] = new ElevatorObj(firstElevatorPane,firstElevator);
+            elevatorObjs[1] = new ElevatorObj(secondElevatorPane,secondElevator);
+            WorkQueue = new ElevatorsControl(elevatorObjs);
+            //WorkQueue.run();
 
-            WorkQueue = new Elevator(firstElevatorPane,secondElevatorPane,firstElevator,secondElevator);
+            //WorkQueue = new Elevator(firstElevatorPane,secondElevatorPane,firstElevator,secondElevator);
         }
     };
 
@@ -82,7 +89,7 @@ public class Controller {
 
         @Override
         public void handle(WindowEvent windowEvent) {
-            WorkQueue.stopTreads();
+            //WorkQueue.stopTreads();
         }
     };
 
