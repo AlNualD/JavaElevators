@@ -63,7 +63,7 @@ public class Controller {
 
 
     private ElevatorsControl WorkQueue;
-
+    private Thread elevatorsTread;
 
     private javafx.event.EventHandler<WindowEvent> openEventHandler = new javafx.event.EventHandler<WindowEvent>(){
 
@@ -74,7 +74,8 @@ public class Controller {
             elevatorObjs[0] = new ElevatorObj(firstElevatorPane,firstElevator);
             elevatorObjs[1] = new ElevatorObj(secondElevatorPane,secondElevator);
             WorkQueue = new ElevatorsControl(elevatorObjs);
-            //WorkQueue.run();
+            elevatorsTread = new Thread(WorkQueue);
+            elevatorsTread.start();
 
             //WorkQueue = new Elevator(firstElevatorPane,secondElevatorPane,firstElevator,secondElevator);
         }
@@ -90,6 +91,7 @@ public class Controller {
         @Override
         public void handle(WindowEvent windowEvent) {
             //WorkQueue.stopTreads();
+            elevatorsTread.stop();
         }
     };
 

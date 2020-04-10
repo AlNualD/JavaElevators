@@ -3,6 +3,7 @@ package sample;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class ElevatorObj {
@@ -12,6 +13,7 @@ public class ElevatorObj {
     private int weight;
     private int floor;
     private int nextFloor;
+    private LinkedList<Integer> floorTasks;
 
     public ElevatorObj(GridPane gridPane, Label label){
         this.gridPane = gridPane;
@@ -20,6 +22,31 @@ public class ElevatorObj {
         weight = 0;
         floor = 0;
         nextFloor = 0;
+        floorTasks = new LinkedList<>();
+    }
+
+    public  int getLastFloor(){
+        if(floorTasks.isEmpty()){
+        return nextFloor + 1;
+        }
+        return floorTasks.getLast();
+    }
+
+    public void followTasks(){
+        if(taskCheck()){
+            moveToNextFloor();
+        }
+        else {
+            if(!floorTasks.isEmpty()){
+                nextFloor = floorTasks.removeFirst();
+                moveToNextFloor();
+            }
+        }
+
+    }
+
+    public synchronized void addTask(int floor){
+        floorTasks.addLast(--floor);
     }
 
     public void moveToNextFloor(){
