@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+
 import java.util.LinkedList;
 
 import static java.lang.Math.abs;
@@ -7,8 +10,10 @@ import static java.lang.Math.abs;
 public class ElevatorsControl implements Runnable {
     private final ElevatorObj[] elevators;
     private final LinkedList<Integer> queue;
-    public ElevatorsControl(ElevatorObj[] elevators){
+    private Object[] labels;
+    public ElevatorsControl(ElevatorObj[] elevators, Object[] queuePane){
         this.elevators = elevators;
+        labels = queuePane;
         queue = new LinkedList<>();
     }
 
@@ -32,6 +37,10 @@ public class ElevatorsControl implements Runnable {
     public synchronized void addTask(int floor){
         System.out.println("addTask" + floor);
         queue.addLast(floor);
+        Label l = (Label)labels[floor - 1];
+        String buff = l.getText();
+        buff += "|";
+        l.setText(buff);
         System.out.println("add Task " + queue.isEmpty());
     }
 
@@ -46,6 +55,7 @@ public class ElevatorsControl implements Runnable {
 //
 
             for (ElevatorObj elevator : elevators) {
+
                 synchronized (queue) {
                     if (!queue.isEmpty()) {
                         System.out.println("QIE");
@@ -53,8 +63,15 @@ public class ElevatorsControl implements Runnable {
                         findClosest(taskFloor).addTask(taskFloor);
                     }
                 }
-                
+
                 elevator.followTasks();
+                if(elevator.taskCheck()){
+                    Label l = (Label)labels[elevator.getFloor() - 1];
+                    String buff = l.getText();
+                    if(buff != ""){
+                        
+                    }
+                }
             }
 
         }
