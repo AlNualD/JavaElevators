@@ -20,7 +20,7 @@ public class TasksGenerator implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            int rTask = random.nextInt(4);
+            int rTask = random.nextInt(5);
             System.out.println("Next: "+ rTask);
             elevatorsControl.addTask(rTask + 1);
         }

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <GridPane fx:id="firstElevatorPane" gridLinesVisible="true" layoutX="35.0" layoutY="28.0" prefHeight="328.0" prefWidth="108.0" rotate="180.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="28.0">
         <columnConstraints>
@@ -17,7 +17,7 @@
           <RowConstraints maxHeight="54.39999999999998" minHeight="10.0" prefHeight="54.39999999999998" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="firstElevator" text="Я - ЛИФТ" />
+            <Label fx:id="firstElevator" alignment="CENTER" rotate="180.0" text="Я - ЛИФТ" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
 <!--      <ImageView fx:id="fistFloorButton" fitHeight="45.0" fitWidth="59.0" layoutX="348.0" layoutY="311.0" onMouseClicked="#firstFloorButtonClicked" pickOnBounds="true" preserveRatio="true">-->
@@ -25,8 +25,8 @@
 <!--            <Image url="@../../images/button.png" />-->
 <!--         </image>-->
 <!--      </ImageView>-->
-      <Button fx:id="firstFloorButton" layoutX="163.0" layoutY="330.0" mnemonicParsing="false" onAction="#firstFloorButtonClicked" text="1" AnchorPane.bottomAnchor="44.39999999999998" AnchorPane.rightAnchor="413.8" />
-      <GridPane fx:id="secondElevatorPane" gridLinesVisible="true" layoutX="216.0" layoutY="28.0" prefHeight="328.0" prefWidth="100.0" rotate="180.0">
+      <Button fx:id="firstFloorButton" layoutX="163.0" layoutY="330.0" mnemonicParsing="false" onAction="#firstFloorButtonClicked" text="1" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="330.0" />
+      <GridPane fx:id="secondElevatorPane" gridLinesVisible="true" layoutX="216.0" layoutY="28.0" prefHeight="328.0" prefWidth="100.0" rotate="180.0" AnchorPane.leftAnchor="216.0" AnchorPane.topAnchor="28.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -38,15 +38,15 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="secondElevator" text="Я тоже ЛИФТ" />
+            <Label fx:id="secondElevator" rotate="180.0" text="Я тоже ЛИФТ" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <Button fx:id="secondFloorButton" layoutX="163.0" layoutY="252.0" mnemonicParsing="false" onAction="#secondFloorButtonClicked" text="2" />
-      <Button fx:id="thirdFloorButton" layoutX="163.0" layoutY="179.0" mnemonicParsing="false" onAction="#thirdFloorButtonClicked" text="3" />
-      <Button fx:id="fourthFloorButton" layoutX="163.0" layoutY="104.0" mnemonicParsing="false" onAction="#fourthFloorButtonClicked" text="4" />
-      <Button fx:id="fifthFloorButton" layoutX="163.0" layoutY="41.0" mnemonicParsing="false" onAction="#fifthFloorButtonClicked" text="5" />
-      <CheckBox fx:id="autoModFlag" layoutX="442.0" layoutY="19.0" mnemonicParsing="false" onAction="#autoModFlagClicked" text="AutoMod" />
-      <GridPane fx:id="queueGridPane" layoutX="335.0" layoutY="29.0" prefHeight="328.0" prefWidth="100.0">
+      <Button fx:id="secondFloorButton" layoutX="163.0" layoutY="252.0" mnemonicParsing="false" onAction="#secondFloorButtonClicked" text="2" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="252.0" />
+      <Button fx:id="thirdFloorButton" layoutX="163.0" layoutY="179.0" mnemonicParsing="false" onAction="#thirdFloorButtonClicked" text="3" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="179.0" />
+      <Button fx:id="fourthFloorButton" layoutX="163.0" layoutY="104.0" mnemonicParsing="false" onAction="#fourthFloorButtonClicked" text="4" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="104.0" />
+      <Button fx:id="fifthFloorButton" layoutX="163.0" layoutY="41.0" mnemonicParsing="false" onAction="#fifthFloorButtonClicked" text="5" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="41.0" />
+      <CheckBox fx:id="autoModFlag" layoutX="138.0" layoutY="368.0" mnemonicParsing="false" onAction="#autoModFlagClicked" text="AutoMod" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="368.0" />
+      <GridPane fx:id="queueGridPane" layoutX="335.0" layoutY="29.0" prefHeight="328.0" prefWidth="168.0" AnchorPane.leftAnchor="335.0" AnchorPane.topAnchor="29.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>

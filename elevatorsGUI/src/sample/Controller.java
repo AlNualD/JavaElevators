@@ -50,9 +50,12 @@ public class Controller {
                 generationTread.stop();
             }
             else {
+                generationTread = new Thread(new TasksGenerator(WorkQueue));
                 generationTread.start();
+                //generationTread.start();
             }
         }
+
     }
 
     public void autoModFlagClicked(){
@@ -60,6 +63,7 @@ public class Controller {
             System.out.println("FlagIsSelected");
         }
         tasksGeneration();
+        WorkQueue.peopleChange();
     }
 
     private void sendTasks(int task){
@@ -121,6 +125,9 @@ public class Controller {
         public void handle(WindowEvent windowEvent) {
             //WorkQueue.stopTreads();
             elevatorsTread.stop();
+            if (generationTread != null && generationTread.isAlive()){
+                generationTread.stop();
+            }
         }
     };
 

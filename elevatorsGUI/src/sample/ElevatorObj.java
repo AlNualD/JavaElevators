@@ -1,9 +1,12 @@
 package sample;
 
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.util.LinkedList;
+import java.util.Random;
+import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 
 public class ElevatorObj {
@@ -14,6 +17,9 @@ public class ElevatorObj {
     private int floor;
     private int nextFloor;
     private LinkedList<Integer> floorTasks;
+    private Random random = new Random(System.currentTimeMillis());
+    private boolean people;
+
 
     public ElevatorObj(GridPane gridPane, Label label){
         this.gridPane = gridPane;
@@ -23,6 +29,7 @@ public class ElevatorObj {
         floor = 0;
         nextFloor = 0;
         floorTasks = new LinkedList<>();
+        people = false;
     }
 
     public  int getLastFloor(){
@@ -37,6 +44,15 @@ public class ElevatorObj {
             moveToNextFloor();
         }
         else {
+            if (people) {
+                int n = random.nextInt(100);
+                if (n == 2) {
+                    int t = random.nextInt(4);
+                    if (t != floor) floorTasks.addFirst(t);
+
+
+                }
+            }
             if(!floorTasks.isEmpty()){
                 nextFloor = floorTasks.removeFirst();
                 moveToNextFloor();
@@ -130,5 +146,13 @@ public class ElevatorObj {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public void setPeople(boolean people){
+        this.people = people;
+    }
+
+    public boolean isPeople() {
+        return people;
     }
 }

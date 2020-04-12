@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -40,10 +41,30 @@ public class ElevatorsControl implements Runnable {
         Label l = (Label)labels[floor - 1];
         String buff = l.getText();
         buff += "|";
-        l.setText(buff);
+
+        String finalBuff = buff;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                l.setText(finalBuff);
+            }
+        });
+
+
+
+
         System.out.println("add Task " + queue.isEmpty());
     }
 
+    public void peopleChange(){
+        boolean flag = true;
+        if(elevators[0].isPeople()){
+                flag = false;
+        }
+        for (ElevatorObj elevator : elevators) {
+            elevator.setPeople(flag);
+        }
+    }
 
 
     @Override
@@ -65,16 +86,18 @@ public class ElevatorsControl implements Runnable {
                 }
 
                 elevator.followTasks();
-                if(elevator.taskCheck()){
+                if(!elevator.taskCheck()){
                     Label l = (Label)labels[elevator.getFloor() - 1];
-                    String buff = l.getText();
-                    if(buff != ""){
-                        
-                    }
+
+//                    if(buff != ""){
+//
+//                    }
                 }
             }
 
         }
 
     }
+
+
 }

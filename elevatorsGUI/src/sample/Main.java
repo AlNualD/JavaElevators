@@ -17,6 +17,7 @@ public class Main extends Application {
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Симулятор ЛИФТОВ");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
 
         Controller controller =loader.getController();
         primaryStage.setOnShowing(controller.getOpenEventHandler());
